@@ -159,7 +159,7 @@ input::-moz-focus-inner {
 /* Some default styles to make each box visible */
 .box {
   color: white;
-  font-size: 100px;
+  font-size: 50px;
   text-align: center;
   text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -197,84 +197,21 @@ input::-moz-focus-inner {
   background: #16a085;
 }
 
-/* align-items and justify-content example below */
-
-/* .container {
-  display: flex;
-  justify-content: center;
-  border: 10px solid #e1b382;
-
-  min-height: 100vh;
-  /* align-items: center; */
-/* flex-direction: column;
-} */
-
-/* justify-content: flex-start will align it to the start, basically the default */
-/* before justify-content, our divs are only as wide as the content within  */
-
-/* stretch is the default, will stretch the length of the page */
-/* The big Kahuna - how to center something vertically using flex-box.  We use justify-content: center with a flex-direction of column */
-
-/* remember that justify-content aligns on the main axis */
-
-/* align items is concerned with the cross- axis. */
-
-/* if we want to center something vertically with align-items, we must make sure it has a height. */
-
-/* can align items with flex-start and flex-end, just like with justify-content;
-
-/* align-items: baseline can align elements based on the bottom of the font. Very Handy */
-
-/* align-content example below  
- .container { 
-  display: flex; 
-  /* justify-content will center the 10 now  
-   justify-content: center;
-  border: 10px solid #e1b382;
-  align-content: space-evenly;
-  min-height: 100vh;
-  flex-wrap: wrap; 
- }
-
- .box {
-  width: 33.3333333%;
-} 
-
-*/
-
-/* align-content takes a the space on the cross axis and splits it up */
-
-/* Kind of like justify-content with the main axis */
-
-/* default is align-content stretch */
-
-/* we must make changes to the box divs within the container and then flex-wrap them to see align-content in action */
-
-/* with both set, we can justify both left to right and top to bottom.
-/* two important things for align-content, 1. we need a flex-wrap 2. We are only concerned with top to bottom */
-
-/* align-self allows us to overwrite the styling of parent containers/divs */
+/* We start writing out flexbox here. The above is just page setup */
 .container {
   display: flex;
-  border: 10px solid seagreen;
-  height: 100vh;
-  align-items: flex-start;
 }
 
+/*flex:1; will scale the container items to even proportions so that they fit the page well */
 .box {
-  width: 33%;
+  flex: 1;
 }
 
+/* when there is space to be had, box two will double the other boxes */
 .box2 {
-  padding-bottom: 200px;
+  flex: 2;
 }
-
-.box6 {
-  padding-bottom: 0;
-}
-
-.box9 {
-  padding-bottom: 50px;
-  /* align-self allows us to overwrite the styling of parent containers/divs */
-  align-self: center;
+/* when there is space to be had, box 3 will be three times the space of other boxes, and so on and so forth */
+.box3 {
+  flex: 3;
 }

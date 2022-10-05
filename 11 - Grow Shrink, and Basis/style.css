@@ -202,6 +202,29 @@ input::-moz-focus-inner {
   display: flex;
 }
 
-.box {
-    flex;
+/* three properties:  flex-grow, flex-shrink, flex-basis */
+/* just saying flex: 1; will set flex-grow and flex-shrink to 1 */
+/* flex-basis is what we would want the basis of size to be in an ideal world*/
+/* for box1 and 2, we will open up the console and see 400 px (380 with 10 on each side for padding) */
+/* .box1 {
+  flex-basis: 400px;
+}
+
+.box2 {
+  flex-basis: 400px;
+}
+
+*/
+
+/* what happens when we have extra room? */
+/* default flex grow is 0, don't use the extra space if not set
+/* if we add the flex-grow of 1 on box 2, and then 2 on box 1, box 1 is getting 2 times the amount of extra space it could have */
+.box1 {
+  flex-basis: 400px;
+  flex-grow: 2;
+}
+
+.box2 {
+  flex-basis: 400px;
+  flex-grow: 1;
 }
