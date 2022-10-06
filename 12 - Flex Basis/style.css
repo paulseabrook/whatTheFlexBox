@@ -200,40 +200,23 @@ input::-moz-focus-inner {
 /* We start writing out flexbox here. The above is just page setup */
 .container {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100vh;
 }
 
-/* three properties:  flex-grow, flex-shrink, flex-basis */
-/* just saying flex: 1; will set flex-grow and flex-shrink to 1 */
-/* flex-basis is what we would want the basis of size to be in an ideal world*/
-/* for box1 and 2, we will open up the console and see 400 px (380 with 10 on each side for padding) */
-/* .box1 {
-  flex-basis: 400px;
-}
-
-.box2 {
-  flex-basis: 400px;
-}
-
-*/
-
-/* what happens when we have extra room? */
-/* default flex grow is 0, don't use the extra space if not set
-/* if we add the flex-grow of 1 on box 2, and then 2 on box 1, box 1 is getting 2 times the amount of extra space it could have */
-
-/* If we bring our browser width down, it will just bring everything down and won't wrap (unless we have a wrapper) */
-
-/* the default is when there is not enough room on the page, evenly divide it amongst the child items
-/* flex shrink - but how do we slim ourselves down when there isn't enough space? use flex shrink */
-/* flex-shrink - how much should I give up of myself when I shrink */
-/* good for responsive design */
-.box1 {
-  flex-basis: 450px;
-  flex-grow: 2;
-  flex-shrink: 4;
-  /* single line would be-  flex:10 5 400px;    for the above properties */
-}
-
-.box2 {
-  flex-basis: 400px;
+/* flex-basis we actually don't have enough room for 500px each */
+/* but if we add the wrap like above... we can get 500 px for each */
+.box {
+  flex-basis: 250px;
   flex-grow: 1;
+}
+
+/* with flex wrap and flex basis, flex-grow for this specific container item will only affect it's own row.*/
+.box3 {
+  flex-grow: 10;
+}
+
+.box4 {
+  flex-basis: 100px;
 }
