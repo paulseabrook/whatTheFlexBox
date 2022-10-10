@@ -46,8 +46,9 @@ img {
 }
 
 input {
-  padding: 10px;
+  padding: 5px;
   border: 0;
+  border-radius: 25px;
 }
 
 section,
@@ -59,17 +60,80 @@ footer {
   color: white;
   font-weight: 100;
 }
-
 /* Flex Container */
 .flex-nav ul {
   border: 1px solid black;
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
 }
 
+.flex-nav li {
+  /* remember to set the flex: which is the flex-grow and grows it to the extra space */
+  flex: 3;
+}
+
+.flex-nav .social {
+  flex: 1;
+}
+
+/* When less than 1000px, do the following */
 @media all and (max-width: 1000px) {
+  .flex-nav ul {
+    flex-wrap: wrap;
+  }
+
+  /* note, for our flex-wrap to work above, we must set the flex-basis, which is the 50% shorthand */
+  .flex-nav li {
+    flex: 1 1 50%;
+  }
+
+  .flex-nav .social {
+    flex: 1 1 25%;
+  }
 }
 
+/* able to stack the li items upon the browser getting within 500 px;  */
 @media all and (max-width: 500px) {
+  .flex-nav li {
+    flex-basis: 100%;
+  }
+  /* if we only start with display: flex, it will break the design at 500px */
+  /* We need to remember the main-axis and cross-axis and change the flex-direction */
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  /* flex items will be any immediate item of wrapper */
+  .wrapper > * {
+    order: 9999;
+  }
+  .flex-nav {
+    order: 1;
+  }
+
+  .toggleNav {
+    display: block;
+  }
+
+  .flex-nav ul {
+    display: none;
+  }
+
+  .flex-nav ul.open {
+    display: flex;
+  }
+
+  .top {
+    order: 2;
+  }
+
+  .details {
+    order: 4;
+  }
+
+  .signup {
+    order: 4;
+  }
 }
